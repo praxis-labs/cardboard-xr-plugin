@@ -144,16 +144,23 @@ namespace Google.XR.Cardboard
                     (int)Screen.width, (int)Screen.height, (int)renderingArea.x,
                     (int)renderingArea.y, (int)renderingArea.width, (int)renderingArea.height);
 
+            // SAM WAS HERE - HIDE THE CLOSE & GEAR RECTS!
+            /*
             RectInt closeRect = Widget.CloseButtonRenderRect;
             RectInt gearRect = Widget.GearButtonRenderRect;
+            */
             RectInt alignmentRect = Widget.AlignmentRect;
             CardboardUnity_setWidgetCount(3);
+            
+            // SAM WAS HERE TOO - HIDE THE CLOSE & GEAR RECTS!
+            /*
             CardboardUnity_setWidgetParams(
                     0, _closeTexture.GetNativeTexturePtr(), closeRect.x, closeRect.y,
                     closeRect.width, closeRect.height);
             CardboardUnity_setWidgetParams(
                     1, _gearTexture.GetNativeTexturePtr(), gearRect.x, gearRect.y, gearRect.width,
                     gearRect.height);
+            */
             CardboardUnity_setWidgetParams(
                     2, Texture2D.whiteTexture.GetNativeTexturePtr(), alignmentRect.x,
                     alignmentRect.y, alignmentRect.width, alignmentRect.height);
@@ -217,10 +224,13 @@ namespace Google.XR.Cardboard
             CardboardUnity_initializeAndroid(activity.GetRawObject());
 #endif
 
+            // SAM WAS HERE TOO - HIDE THE CLOSE & GEAR RECTS!
+            /*
             _closeTexture = Resources.Load<Texture2D>("Cardboard/quantum_ic_close_white_24");
             DontDestroyOnLoad(_closeTexture);
             _gearTexture = Resources.Load<Texture2D>("Cardboard/quantum_ic_settings_white_24");
             DontDestroyOnLoad(_gearTexture);
+            */
 
             SetGraphicsApi();
 
@@ -234,8 +244,11 @@ namespace Google.XR.Cardboard
         /// </summary>
         private void CardboardSDKDeinitialize()
         {
+            // SAM WAS HERE TOO - HIDE THE CLOSE & GEAR RECTS!
+            /*
             Resources.UnloadAsset(_closeTexture);
             Resources.UnloadAsset(_gearTexture);
+            */
         }
     }
 }
